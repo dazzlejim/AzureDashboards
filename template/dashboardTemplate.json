@@ -1,0 +1,344 @@
+{
+  "properties": {
+    "lenses": {
+      "0": {
+        "order": 0,
+        "parts": {
+          "0": {
+            "position": {
+              "x": 0,
+              "y": 0,
+              "colSpan": 16,
+              "rowSpan": 6
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "chartType",
+                  "isOptional": true
+                },
+                {
+                  "name": "isShared",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryId",
+                  "isOptional": true
+                },
+                {
+                  "name": "formatResults",
+                  "isOptional": true
+                },
+                {
+                  "name": "partTitle",
+                  "value": "Query 1",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryScope",
+                  "value": {
+                    "scope": 0,
+                    "values": []
+                  },
+                  "isOptional": true
+                },
+                {
+                  "name": "query",
+                  "value": "// resource types by number of resources\r\nresources\r\n| where type =~ 'Microsoft.Hybridcompute/machines'\r\n| join kind=fullouter (\r\n    resources\r\n    | where type =~ 'Microsoft.Azurearcdata/sqlserverinstances'\r\n    | project name, sqlVersion=properties.version, sqlEdition=properties.edition, sqlPatchLevel=properties.patchLevel\r\n) on name\r\n| project vmName=properties.displayName, resourceGroup, operatingSystem=properties.osSku,  sqlVersion, sqlEdition, sqlPatchLevel, cores=properties.detectedProperties.logicalCoreCount, esu=properties.licenseProfile.esuProfile.esuEligibility, esuState=properties.licenseProfile.esuProfile.licenseAssignmentState",
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/HubsExtension/PartType/ArgQueryGridTile",
+              "settings": {},
+              "partHeader": {
+                "title": "Azure - Arc Enabled Servers",
+                "subtitle": "Windows 2012 + SQL 2012 (ESU)"
+              }
+            }
+          },
+          "1": {
+            "position": {
+              "x": 0,
+              "y": 6,
+              "colSpan": 4,
+              "rowSpan": 2
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "chartType",
+                  "isOptional": true
+                },
+                {
+                  "name": "isShared",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryId",
+                  "isOptional": true
+                },
+                {
+                  "name": "formatResults",
+                  "isOptional": true
+                },
+                {
+                  "name": "partTitle",
+                  "value": "Query 1",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryScope",
+                  "value": {
+                    "scope": 0,
+                    "values": []
+                  },
+                  "isOptional": true
+                },
+                {
+                  "name": "query",
+                  "value": "resources \n| where ['type'] =~ 'Microsoft.HybridCompute/machines'\n| project operatingSystem=properties.osSku\n| count",
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/HubsExtension/PartType/ArgQuerySingleValueTile",
+              "settings": {},
+              "partHeader": {
+                "title": "Windows 2012 instances",
+                "subtitle": ""
+              }
+            }
+          },
+          "2": {
+            "position": {
+              "x": 4,
+              "y": 6,
+              "colSpan": 4,
+              "rowSpan": 2
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "chartType",
+                  "isOptional": true
+                },
+                {
+                  "name": "isShared",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryId",
+                  "isOptional": true
+                },
+                {
+                  "name": "formatResults",
+                  "isOptional": true
+                },
+                {
+                  "name": "partTitle",
+                  "value": "Query 1",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryScope",
+                  "value": {
+                    "scope": 0,
+                    "values": []
+                  },
+                  "isOptional": true
+                },
+                {
+                  "name": "query",
+                  "value": "resources \n| where ['type'] =~ 'Microsoft.HybridCompute/machines'\n| project esuWindows2012=properties.licenseProfile.esuProfile.esuEligibility\n| count",
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/HubsExtension/PartType/ArgQuerySingleValueTile",
+              "settings": {},
+              "partHeader": {
+                "title": "Windows 2012 instances eligible for ESU",
+                "subtitle": ""
+              }
+            }
+          },
+          "3": {
+            "position": {
+              "x": 8,
+              "y": 6,
+              "colSpan": 4,
+              "rowSpan": 2
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "chartType",
+                  "isOptional": true
+                },
+                {
+                  "name": "isShared",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryId",
+                  "isOptional": true
+                },
+                {
+                  "name": "formatResults",
+                  "isOptional": true
+                },
+                {
+                  "name": "partTitle",
+                  "value": "Query 1",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryScope",
+                  "value": {
+                    "scope": 0,
+                    "values": []
+                  },
+                  "isOptional": true
+                },
+                {
+                  "name": "query",
+                  "value": "resources \n| where ['type'] =~ 'Microsoft.HybridCompute/machines'\n| project esuState=properties.licenseProfile.esuProfile.licenseAssignmentState\n| count",
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/HubsExtension/PartType/ArgQuerySingleValueTile",
+              "settings": {},
+              "partHeader": {
+                "title": "Windows 2012 instances not assigned ESU",
+                "subtitle": ""
+              }
+            }
+          },
+          "4": {
+            "position": {
+              "x": 12,
+              "y": 6,
+              "colSpan": 4,
+              "rowSpan": 2
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "chartType",
+                  "isOptional": true
+                },
+                {
+                  "name": "isShared",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryId",
+                  "isOptional": true
+                },
+                {
+                  "name": "formatResults",
+                  "isOptional": true
+                },
+                {
+                  "name": "partTitle",
+                  "value": "Query 1",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryScope",
+                  "value": {
+                    "scope": 0,
+                    "values": []
+                  },
+                  "isOptional": true
+                },
+                {
+                  "name": "query",
+                  "value": "resources \n| where ['type'] =~ 'Microsoft.HybridCompute/machines'\n| where properties.licenseProfile.esuProfile.licenseAssignmentState == 'Assigned'\n| count",
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/HubsExtension/PartType/ArgQuerySingleValueTile",
+              "settings": {},
+              "partHeader": {
+                "title": "Windows 2012 instances assigned ESU",
+                "subtitle": ""
+              }
+            }
+          },
+          "5": {
+            "position": {
+              "x": 0,
+              "y": 8,
+              "colSpan": 16,
+              "rowSpan": 9
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "isShared",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryId",
+                  "isOptional": true
+                },
+                {
+                  "name": "formatResults",
+                  "isOptional": true
+                },
+                {
+                  "name": "partTitle",
+                  "value": "Query 1",
+                  "isOptional": true
+                },
+                {
+                  "name": "query",
+                  "value": "resources \n| where ['type'] =~ 'Microsoft.HybridCompute/machines'\n| where properties.osSku contains \"Windows Server 2012\"\n| project location\n| summarize count() by location",
+                  "isOptional": true
+                },
+                {
+                  "name": "chartType",
+                  "value": 4,
+                  "isOptional": true
+                },
+                {
+                  "name": "queryScope",
+                  "value": {
+                    "scope": 0,
+                    "values": []
+                  },
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/HubsExtension/PartType/ArgQueryChartTile",
+              "settings": {},
+              "partHeader": {
+                "title": "Arc hybrid compute by region",
+                "subtitle": "Windows 2012"
+              }
+            }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "model": {
+        "timeRange": {
+          "value": {
+            "relative": {
+              "duration": 24,
+              "timeUnit": 1
+            }
+          },
+          "type": "MsPortalFx.Composition.Configuration.ValueTypes.TimeRange"
+        }
+      }
+    }
+  },
+  "name": "Arc Enabled Servers (2012 ESU)",
+  "type": "Microsoft.Portal/dashboards",
+  "location": "INSERT LOCATION",
+  "tags": {
+    "hidden-title": "Arc Enabled Servers (2012 ESU)"
+  },
+  "apiVersion": "2015-08-01-preview"
+}
