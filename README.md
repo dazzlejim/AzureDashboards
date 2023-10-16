@@ -3,7 +3,7 @@
 
 Extended Security Updates (ESUs) can be delivered to Windows Server 2012 and SQL Server 2012 systems that are not hosted in Azure by registering those systems with Azure Arc Enabled Server and assigning an ESU license to them.
 
-Althou there is some visibility available in the Azure Portal relating to ESU licenses, you may want to create your own custom dashboard to track their assigment.
+Although there is some visibility available in the Azure Portal relating to ESU licenses, you may want to create your own custom dashboard to track their assigment.
 
 In this simple example, the Azure Resource Graph and the Azure Portal Dashboard are used to build a custom view. It helps track which Arc Enabled Servers are running Windows and SQL versions that may be eligible for ESU, and if an ESU license has been assigned.
 
